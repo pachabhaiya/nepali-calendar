@@ -1,13 +1,15 @@
 <?php
 
 use Pachabhaiya\NepaliCalendar\NepaliCalendar;
+use Pachabhaiya\NepaliCalendar\AdToBs\AdToBs;
+use Pachabhaiya\NepaliCalendar\BsToAd\BsToAd;
 
 class NepaliCalendarTest extends PHPUnit_Framework_TestCase {
 
 	private $nepali_calendar;
 
 	public function setUp() {
-		$this->nepali_calendar = new NepaliCalendar;
+		$this->nepali_calendar = new NepaliCalendar(new AdToBs(), new BsToAd());
 	}
 
 	public function tearDown() {
