@@ -40,11 +40,9 @@ class NepaliCalendar {
         {
             case 'bs':
                 return $this->ad_to_bs->getNepaliDate();
-                break;
             
             case 'ad_to_bs':
                 return array();
-                break;
             
             default:
                 throw new \InvalidArgumentException('Invalid Date type entry');
