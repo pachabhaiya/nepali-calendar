@@ -1,8 +1,8 @@
 <?php
 
-use Pachabhaiya\NepaliCalendar\NepaliCalendar;
-use Pachabhaiya\NepaliCalendar\AdToBs\AdToBs;
-use Pachabhaiya\NepaliCalendar\BsToAd\BsToAd;
+use NepaliCalendar\NepaliCalendar;
+use NepaliCalendar\AdToBs\AdToBs;
+use NepaliCalendar\BsToAd\BsToAd;
 
 class NepaliCalendarTest extends PHPUnit_Framework_TestCase {
 
@@ -17,7 +17,7 @@ class NepaliCalendarTest extends PHPUnit_Framework_TestCase {
 	}
 
 	public function testInstanceOf() {
-		$this->assertInstanceOf('Pachabhaiya\NepaliCalendar\NepaliCalendar', $this->nepali_calendar);
+		$this->assertInstanceOf('NepaliCalendar\NepaliCalendar', $this->nepali_calendar);
 	}
 
 	public function testDate() {

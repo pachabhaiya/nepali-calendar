@@ -1,8 +1,8 @@
 <?php
 
-namespace Pachabhaiya\NepaliCalendar\AdToBs;
+namespace NepaliCalendar\AdToBs;
 
-use Pachabhaiya\NepaliCalendar\AdToBs\AdToBsInterface;
+use NepaliCalendar\AdToBs\AdToBsInterface;
 
 class AdToBs implements AdToBsInterface {
 

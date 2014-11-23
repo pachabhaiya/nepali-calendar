@@ -2,27 +2,27 @@
 
 /**
  * @file
- * Contains \Pachabhaiya\NepaliCalendar\NepaliCalendar.
+ * Contains \NepaliCalendar\NepaliCalendar.
  */
 
-namespace Pachabhaiya\NepaliCalendar;
+namespace NepaliCalendar;
 
-use Pachabhaiya\NepaliCalendar\AdToBs\AdToBs;
-use Pachabhaiya\NepaliCalendar\BsToAd\BsToAd;
+use NepaliCalendar\AdToBs\AdToBs;
+use NepaliCalendar\BsToAd\BsToAd;
 
 class NepaliCalendar {
 
     /**
      * Gregorian calendar (A.D.) to Bikram Sambat (B.S.) converter.
      *
-     * @var \Pachabhaiya\NepaliCalendar\AdToBs;
+     * @var \NepaliCalendar\AdToBs;
      */
     protected $ad_to_bs;
 
     /**
      * Bikram Sambat (B.S.) to Gregorian calendar (A.D.) converter.
      *
-     * @var \Pachabhaiya\NepaliCalendar\BsToAd;
+     * @var \NepaliCalendar\BsToAd;
      */
     protected $bs_to_ad;
 

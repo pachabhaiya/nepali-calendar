@@ -1,6 +1,6 @@
 <?php
 
-namespace Pachabhaiya\NepaliCalendar\AdToBs;
+namespace NepaliCalendar\AdToBs;
 
 interface AdToBsInterface
 {

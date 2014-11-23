@@ -2,6 +2,7 @@
 composer.phar
 composer.lock
 vendor/
+.idea
 
 # Ignore operating system generated files.
 .DS_Store

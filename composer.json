@@ -24,8 +24,8 @@
     "phpunit/phpunit": "4.2.*"
   },
   "autoload": {
-    "psr-0": {
-      "Pachabhaiya\\NepaliCalendar\\": "lib/"
+    "psr-4": {
+      "NepaliCalendar\\": "lib/"
     }
   },
   "minimum-stability": "dev",
