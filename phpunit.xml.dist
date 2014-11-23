@@ -13,7 +13,6 @@
   <testsuites>
     <testsuite name="Nepali Calendar Tests">
       <directory>tests/lib/</directory>
-      <file>tests/lib/NepaliCalendarTest.php</file>
     </testsuite>
   </testsuites>
 
