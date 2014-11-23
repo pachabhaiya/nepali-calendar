@@ -12,14 +12,6 @@ class NepaliCalendarTest extends PHPUnit_Framework_TestCase {
 		$this->nepali_calendar = new NepaliCalendar(new AdToBs(), new BsToAd());
 	}
 
-	public function tearDown() {
-		unset($this->nepali_calendar);
-	}
-
-	public function testInstanceOf() {
-		$this->assertInstanceOf('NepaliCalendar\NepaliCalendar', $this->nepali_calendar);
-	}
-
 	public function testDate() {
 		$today = $this->nepali_calendar->getCurrentDate();
 		// print_r($this->nepali_calendar->getCurrentDate());
