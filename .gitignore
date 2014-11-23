@@ -1,0 +1,10 @@
+# Ignore composer files.
+composer.phar
+composer.lock
+vendor/
+
+# Ignore operating system generated files.
+.DS_Store
+
+# Ignore local phpunit configuration files.
+phpunit.xml
