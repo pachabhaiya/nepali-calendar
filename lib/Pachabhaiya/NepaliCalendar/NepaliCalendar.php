@@ -26,9 +26,9 @@ class NepaliCalendar {
      */
     protected $bs_to_ad;
 
-    public function __construct() {
-        $this->ad_to_bs = new AdToBs();
-        $this->bs_to_ad = new BsToAd();
+    public function __construct(AdtoBs $adToBs, BsToAd $bsToAd) {
+        $this->ad_to_bs = $adToBs;
+        $this->bs_to_ad = $bsToAd;
     }
 
     public function getCurrentDate() {
@@ -36,12 +36,18 @@ class NepaliCalendar {
     }
 
     public function getDate($type = 'ad_to_bs') {
-        if ($type == 'bs') {
-            return $this->ad_to_bs->getNepaliDate();
-        } else if ($type == 'ad_to_bs') {
-            return array();
-        } else {
-            return new \Exception('Invalid entry');
+        switch($type)
+        {
+            case 'bs':
+                return $this->ad_to_bs->getNepaliDate();
+                break;
+            
+            case 'ad_to_bs':
+                return array();
+                break;
+            
+            default:
+                throw new \InvalidArgumentException('Invalid Date type entry');
         }
     }
 
