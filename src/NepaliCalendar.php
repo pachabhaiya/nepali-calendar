@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \NepaliCalendar\NepaliCalendar.
- */
-
 namespace NepaliCalendar;
 
 use NepaliCalendar\AdToBs\AdToBs;
@@ -39,10 +34,10 @@ class NepaliCalendar
     public function getDate($type = 'ad_to_bs')
     {
         switch ($type) {
-            case 'bs':
+            case 'ad_to_bs':
                 return $this->ad_to_bs->getNepaliDate();
 
-            case 'ad_to_bs':
+            case 'bs_to_ad':
                 return array();
 
             default:
