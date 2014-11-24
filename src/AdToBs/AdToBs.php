@@ -4,7 +4,6 @@ namespace NepaliCalendar\AdToBs;
 
 class AdToBs implements AdToBsInterface
 {
-
     private function getDateTime()
     {
         $datetime  = new \DateTime('now', new \DateTimeZone('Asia/Kathmandu'));
@@ -354,5 +353,4 @@ class AdToBs implements AdToBsInterface
         );
         return $months[$month];
     }
-
 }

@@ -7,7 +7,6 @@ use NepaliCalendar\BsToAd\BsToAd;
 
 class NepaliCalendar
 {
-
     /**
      * Gregorian calendar (A.D.) to Bikram Sambat (B.S.) converter.
      * @var \NepaliCalendar\AdToBs;
@@ -47,6 +46,5 @@ class NepaliCalendar
 
     public function convertDate($type = 'ad_to_bs')
     {
-
     }
 }
