@@ -12,13 +12,13 @@
 
   <testsuites>
     <testsuite name="Nepali Calendar Tests">
-      <directory>tests/lib/</directory>
+      <directory>tests/src/</directory>
     </testsuite>
   </testsuites>
 
   <filter>
     <whitelist>
-      <directory suffix=".php">lib/</directory>
+      <directory suffix=".php">src/</directory>
     </whitelist>
   </filter>
 
