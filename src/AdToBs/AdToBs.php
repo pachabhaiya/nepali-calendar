@@ -4,13 +4,6 @@ namespace NepaliCalendar\AdToBs;
 
 class AdToBs implements AdToBsInterface
 {
-    private function getDateTime()
-    {
-        $datetime  = new \DateTime('now', new \DateTimeZone('Asia/Kathmandu'));
-        $timestamp = strtotime($datetime->format('Y-m-d H:i:s'));
-        return getdate($timestamp);
-    }
-
     private function isLeapYear($year)
     {
         $is_leap_year = false;
@@ -312,12 +305,19 @@ class AdToBs implements AdToBsInterface
         return $return;
     }
 
-    public function getNepaliDate()
+    public function getNepaliDate($timestamp = null)
     {
+        if (!is_null($timestamp)) {
+            $timestamp = "@{$timestamp}";
+        }
 
-        $today = $this->getDateTime();
+        $datetime = new \DateTime($timestamp);
+        $datetime->setTimeZone(new \DateTimeZone('Asia/Kathmandu'));
 
-        $date = $this->convertAdToBs($today['year'], $today['mon'], $today['mday']);
+        $timestamp = strtotime($datetime->format('Y-m-d H:i:s'));
+        $dt = getdate($timestamp);
+
+        $date = $this->convertAdToBs($dt['year'], $dt['mon'], $dt['mday']);
 
         $datetime = array(
             'Y' => $date['year'],
@@ -326,12 +326,13 @@ class AdToBs implements AdToBsInterface
             'F' => $this->month($date['month']),
             'j' => $date['day'],
             'd' => str_pad($date['day'], 2, '0', STR_PAD_LEFT),
-            'H' => str_pad($today['hours'], 2, '0', STR_PAD_LEFT),
-            'i' => str_pad($today['minutes'], 2, '0', STR_PAD_LEFT),
-            's' => str_pad($today['seconds'], 2, '0', STR_PAD_LEFT),
-            'w' => $today['wday'],
-            'l' => $today['weekday'],
+            'H' => str_pad($dt['hours'], 2, '0', STR_PAD_LEFT),
+            'i' => str_pad($dt['minutes'], 2, '0', STR_PAD_LEFT),
+            's' => str_pad($dt['seconds'], 2, '0', STR_PAD_LEFT),
+            'w' => $dt['wday'],
+            'l' => $dt['weekday'],
         );
+
         return $datetime;
     }
 
