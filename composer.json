@@ -12,8 +12,8 @@
   "authors": [
     {
       "name": "Chhabi Pachabhaiya",
-      "email": "c.pachabhaiya@gmail.com",
-      "homepage": "http://c.pachabhaiya.com",
+      "email": "chhabi@pachabhaiya.com",
+      "homepage": "https://chhabi.dev",
       "role": "Developer"
     }
   ],
@@ -28,8 +28,5 @@
       "NepaliCalendar\\": "src/"
     }
   },
-  "minimum-stability": "dev",
-  "config": {
-    "bin-dir": "vendor/bin/"
-  }
+  "minimum-stability": "dev"
 }
