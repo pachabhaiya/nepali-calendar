@@ -1,12 +1,11 @@
 language: php
 
 php:
-  - 5.3
-  - 5.4
-  - 5.5
+  - 8.1
+  - 8.2
+  - 8.3
 
 before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install
+  - composer install --no-interaction --prefer-dist
 
 script: ./vendor/bin/phpunit

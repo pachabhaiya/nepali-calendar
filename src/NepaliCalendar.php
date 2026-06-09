@@ -1,50 +1,66 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NepaliCalendar;
 
+use DateTimeInterface;
 use NepaliCalendar\AdToBs\AdToBs;
 use NepaliCalendar\BsToAd\BsToAd;
 
-class NepaliCalendar
+class NepaliCalendar implements NepaliCalendarInterface
 {
-    /**
-     * Gregorian calendar (A.D.) to Bikram Sambat (B.S.) converter.
-     * @var \NepaliCalendar\AdToBs;
-     */
-    protected $ad_to_bs;
+    /** {@inheritDoc} */
+    public function __construct(
+        private AdToBs $adToBs,
+        private BsToAd $bsToAd,
+    ) {}
 
-    /**
-     * Bikram Sambat (B.S.) to Gregorian calendar (A.D.) converter.
-     * @var \NepaliCalendar\BsToAd;
-     */
-    protected $bs_to_ad;
-
-    public function __construct(AdtoBs $adToBs, BsToAd $bsToAd)
+    /** {@inheritDoc} */
+    public function getCurrentDateTime(): array
     {
-        $this->ad_to_bs = $adToBs;
-        $this->bs_to_ad = $bsToAd;
+        return $this->adToBs->getNepaliDateTime();
     }
 
-    public function getCurrentDate()
+    /** {@inheritDoc} */
+    public function convertDate(string $type, int $year, int $month, int $day): array
     {
-        return $this->ad_to_bs->getNepaliDate();
+        return match ($type) {
+            'ad_to_bs' => $this->adToBs->convertDate($year, $month, $day),
+            'bs_to_ad' => $this->bsToAd->convertDate($year, $month, $day),
+            default    => throw new \InvalidArgumentException(
+                "Unsupported conversion type \"{$type}\". Use 'ad_to_bs' or 'bs_to_ad'."
+            ),
+        };
     }
 
-    public function getDate($type = 'ad_to_bs')
+    /** {@inheritDoc} */
+    public function convertAdToBsDateTime(DateTimeInterface $adDateTime): array
     {
-        switch ($type) {
-            case 'ad_to_bs':
-                return $this->ad_to_bs->getNepaliDate();
-
-            case 'bs_to_ad':
-                return array();
-
-            default:
-                throw new \InvalidArgumentException('Invalid Date type entry');
-        }
+        return $this->adToBs->convertDateTime($adDateTime);
     }
 
-    public function convertDate($type = 'ad_to_bs')
-    {
+    /** {@inheritDoc} */
+    public function convertAdToBsLocalDateTime(
+        int $adYear,
+        int $adMonth,
+        int $adDay,
+        int $hour = 0,
+        int $minute = 0,
+        int $second = 0
+    ): array {
+        return $this->adToBs->convertLocalDateTime($adYear, $adMonth, $adDay, $hour, $minute, $second);
+    }
+
+    /** {@inheritDoc} */
+    public function convertBsToAdDateTime(
+        int $bsYear,
+        int $bsMonth,
+        int $bsDay,
+        int $hour = 0,
+        int $minute = 0,
+        int $second = 0
+    ): array {
+        return $this->bsToAd->convertLocalDateTime($bsYear, $bsMonth, $bsDay, $hour, $minute, $second);
     }
 }

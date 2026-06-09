@@ -2,11 +2,10 @@
 composer.phar
 composer.lock
 vendor/
-.idea
-coverage
 
 # Ignore operating system generated files.
 .DS_Store
 
-# Ignore local phpunit configuration files.
+# Ignore PHPUnit configuration and cache.
 phpunit.xml
+.phpunit.cache
